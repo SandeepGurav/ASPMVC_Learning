@@ -21,10 +21,17 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Users", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Countries", "Index", "Countries")</li>
+                    <li>@Html.ActionLink("Cities", "Index", "Cities")</li>
                 </ul>
             </div>
+            
         </div>
+        
     </div>
+    
    
     <div class="container body-content">
         @RenderBody()
