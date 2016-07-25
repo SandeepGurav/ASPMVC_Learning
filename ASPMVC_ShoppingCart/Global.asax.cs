@@ -11,6 +11,7 @@ namespace ASPMVC_ShoppingCart
     {
         protected void Application_Start()
         {
+           //Application start
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
