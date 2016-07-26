@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="ASPMVCModel.User" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="ASPMVCModel.FK_City_Country" ManuallyRouted="false" />
         <AssociationConnector Association="ASPMVCModel.FK_User_City" ManuallyRouted="false" />
+        <AssociationConnector Association="ASPMVCModel.FK_User_City1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

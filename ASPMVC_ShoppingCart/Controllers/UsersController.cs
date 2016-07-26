@@ -18,7 +18,10 @@ namespace ASPMVC_ShoppingCart.Controllers
         public ActionResult Index()
         {
             var users = db.Users.Include(u => u.City);
+            
             return View(users.ToList());
+
+            
         }
 
         // GET: Users/Details/5
@@ -40,6 +43,7 @@ namespace ASPMVC_ShoppingCart.Controllers
         public ActionResult Create()
         {
             ViewBag.CityID = new SelectList(db.Cities, "CityID", "CityName");
+            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "CountryName");
             return View();
         }
 

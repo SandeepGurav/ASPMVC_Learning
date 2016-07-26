@@ -17,11 +17,13 @@ namespace ASPMVC_ShoppingCart.Models
         public Country()
         {
             this.Cities = new HashSet<City>();
+            this.Users = new HashSet<User>();
         }
     
         public int CountryID { get; set; }
         public string CountryName { get; set; }
     
         public virtual ICollection<City> Cities { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

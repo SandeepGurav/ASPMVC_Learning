@@ -24,7 +24,7 @@
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
           <Property Name="EmailID" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
@@ -44,14 +44,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_City">
-          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="CityID" />
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="CityID" />
+              <PropertyRef Name="CountryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -64,7 +64,7 @@
             <End Role="City" EntitySet="City" />
           </AssociationSet>
           <AssociationSet Name="FK_User_City" Association="Self.FK_User_City">
-            <End Role="City" EntitySet="City" />
+            <End Role="Country" EntitySet="Country" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
@@ -89,6 +89,7 @@
           <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cities" Relationship="Self.FK_City_Country" FromRole="Country" ToRole="City" />
+          <NavigationProperty Name="Users" Relationship="ASPMVCModel.FK_User_City1" FromRole="Country" ToRole="User" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -101,6 +102,7 @@
           <Property Name="CountryID" Type="Int32" Nullable="false" />
           <Property Name="CityID" Type="Int32" />
           <NavigationProperty Name="City" Relationship="Self.FK_User_City" FromRole="User" ToRole="City" />
+          <NavigationProperty Name="Country" Relationship="ASPMVCModel.FK_User_City1" FromRole="User" ToRole="Country" />
         </EntityType>
         <Association Name="FK_City_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -138,7 +140,23 @@
             <End Role="City" EntitySet="Cities" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_User_City1" Association="ASPMVCModel.FK_User_City1">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_User_City1">
+          <End Type="ASPMVCModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="ASPMVCModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="CountryID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
