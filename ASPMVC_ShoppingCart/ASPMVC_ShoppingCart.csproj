@@ -269,6 +269,7 @@
     <Content Include="Scripts\plugins\morris\morris.js" />
     <Content Include="Scripts\plugins\morris\morris.min.js" />
     <Content Include="Scripts\plugins\morris\raphael.min.js" />
+    <Content Include="Script\script.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
