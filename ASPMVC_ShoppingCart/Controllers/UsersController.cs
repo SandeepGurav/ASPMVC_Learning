@@ -42,9 +42,23 @@ namespace ASPMVC_ShoppingCart.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
-            ViewBag.CityID = new SelectList(db.Cities, "CityID", "CityName");
+            //ViewBag.CityID = new SelectList("select", "CityID", "CityName");
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "CountryName");
             return View();
+        }
+
+        public ActionResult BindCity(int id )
+        {
+           // var citybycountryid = db.Cities.Find(id).;
+            var cities = new SelectList(db.Cities.Where(c=>c.CountryID==id), "CityID", "CityName");
+            var cityList=from c in db.Cities
+                         where c.CityID==id
+                         select new {c.CityName,c.CityID};
+            
+            //var cities = new SelectList(cityList, "CityID", "CityName");
+            return Json(cities.ToList(), JsonRequestBehavior.AllowGet);
+          
+           // return View();
         }
 
         // POST: Users/Create
@@ -52,8 +66,9 @@ namespace ASPMVC_ShoppingCart.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,Name,EmailID,ContactNo,CountryID,CityID")] User user)
+        public ActionResult Create([Bind(Include = "UserID,Name,EmailID,ContactNo,CountryID,CityID,Password")] User user)
         {
+
             if (ModelState.IsValid)
             {
                 db.Users.Add(user);
@@ -86,7 +101,7 @@ namespace ASPMVC_ShoppingCart.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,Name,EmailID,ContactNo,CountryID,CityID")] User user)
+        public ActionResult Edit([Bind(Include = "UserID,Name,EmailID,ContactNo,CountryID,CityID,Password")] User user)
         {
             if (ModelState.IsValid)
             {

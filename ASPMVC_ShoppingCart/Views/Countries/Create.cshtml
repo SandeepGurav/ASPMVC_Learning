@@ -1,11 +1,13 @@
 ﻿@model ASPMVC_ShoppingCart.Models.Country
 
 @{
-
+    
+    Layout = "_Layout.cshtml";
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
+
 
 @using (Html.BeginForm()) 
 {
@@ -34,3 +36,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+

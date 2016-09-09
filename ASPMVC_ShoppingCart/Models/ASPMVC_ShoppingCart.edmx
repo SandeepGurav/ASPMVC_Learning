@@ -30,6 +30,7 @@
           <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
           <Property Name="CountryID" Type="int" Nullable="false" />
           <Property Name="CityID" Type="int" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK_City_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -103,6 +104,7 @@
           <Property Name="CityID" Type="Int32" />
           <NavigationProperty Name="City" Relationship="Self.FK_User_City" FromRole="User" ToRole="City" />
           <NavigationProperty Name="Country" Relationship="ASPMVCModel.FK_User_City1" FromRole="User" ToRole="Country" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_City_Country">
           <End Role="Country" Type="Self.Country" Multiplicity="1" />
@@ -183,6 +185,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ASPMVCModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="EmailID" ColumnName="EmailID" />
