@@ -15,9 +15,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
-
 </head>
 <body>
     <div id="wrapper">
@@ -46,7 +43,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            @Html.ActionLink(" Log Out", "logout", "Users", new { @class = "fa fa-fw fa-power-off" })
                         </li>
                     </ul>
                 </li>
@@ -54,6 +51,15 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    @*<li>
+                        <a href="charts.html"><i class="fa fa-fw fa-road"></i> Roadmap</a>
+                    </li>*@
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Configuration</a>
+                    </li>  
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-user"></i> User Managment <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
@@ -67,19 +73,7 @@
                                 @Html.ActionLink("Cities", "Index", "Cities")
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>                   
-                        <a href="charts.html"><i class="fa fa-fw fa-road"></i> Roadmap</a>
-                    </li>
-                    <li class="active">
-                        <a href="forms.html"><i class="fa fa-fw form-control-feedback"></i> Feedback</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Configuration</a>
-                    </li>     
+                    </li>                     
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

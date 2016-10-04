@@ -21,6 +21,7 @@ namespace ASPMVC_ShoppingCart.Models
         public int CountryID { get; set; }
         public Nullable<int> CityID { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }
     
         public virtual City City { get; set; }
         public virtual Country Country { get; set; }

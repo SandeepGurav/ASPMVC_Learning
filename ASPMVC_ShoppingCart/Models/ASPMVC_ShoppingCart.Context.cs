@@ -28,7 +28,5 @@ namespace ASPMVC_ShoppingCart.Models
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<User> Users { get; set; }
-
-        public System.Data.Entity.DbSet<ASPMVC_ShoppingCart.Models.CityView> CityViews { get; set; }
     }
 }

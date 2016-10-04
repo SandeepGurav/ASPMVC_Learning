@@ -7,14 +7,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ASPMVC_ShoppingCart.Models;
+using ASPMVC_ShoppingCart.Security;
 
 namespace ASPMVC_ShoppingCart.Controllers
 {
+
+    
+     //[CustomAuthorizeFilter(Roles = "Admin")]
+   
     public class CitiesController : Controller
     {
         private ASPMVCEntities db = new ASPMVCEntities();
 
         // GET: Cities
+       [AllowAnonymous]
         public ActionResult Index()
         {
             var cities = db.Cities.Include(c => c.Country);
@@ -22,6 +28,7 @@ namespace ASPMVC_ShoppingCart.Controllers
         }
 
         // GET: Cities/Details/5
+         [CustomAuthorizeFilter(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +44,7 @@ namespace ASPMVC_ShoppingCart.Controllers
         }
 
         // GET: Cities/Create
+         [CustomAuthorizeFilter(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "CountryName");

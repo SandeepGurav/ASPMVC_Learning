@@ -8,13 +8,17 @@ using System.Web;
 using System.Web.Mvc;
 using ASPMVC_ShoppingCart.Models;
 using System.Web.Optimization;
+using ASPMVC_ShoppingCart.Security;
+
 namespace ASPMVC_ShoppingCart.Controllers
 {
+    [CustomAuthorizeFilter(Roles="User")]
     public class CountriesController : Controller
     {
         private ASPMVCEntities db = new ASPMVCEntities();
 
         // GET: Countries
+        
         public ActionResult Index()
         {
             return View(db.Countries.ToList());

@@ -15,6 +15,7 @@ namespace ASPMVC_ShoppingCart
             AreaRegistration.RegisterAllAreas();
             //rout bundle
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }
