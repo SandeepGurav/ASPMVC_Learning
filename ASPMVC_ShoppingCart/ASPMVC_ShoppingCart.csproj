@@ -146,6 +146,7 @@
     <Content Include="Content\plugins\morris.css" />
     <Content Include="Content\sb-admin-rtl.css" />
     <Content Include="Content\sb-admin.css" />
+    <Content Include="Content\script.sql" />
     <Content Include="Content\Site.css" />
     <Content Include="dist\css\AdminLTE.css" />
     <Content Include="dist\css\AdminLTE.min.css" />
