@@ -11,7 +11,8 @@ namespace ASPMVC_ShoppingCart.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    //[MetadataType(typeof(CountryMetaData))]
     public partial class Country
     {
         public Country()

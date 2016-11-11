@@ -13,8 +13,7 @@ namespace ASPMVC_ShoppingCart.Controllers
 {
 
     
-     //[CustomAuthorizeFilter(Roles = "Admin")]
-   
+
     public class CitiesController : Controller
     {
         private ASPMVCEntities db = new ASPMVCEntities();
@@ -28,7 +27,6 @@ namespace ASPMVC_ShoppingCart.Controllers
         }
 
         // GET: Cities/Details/5
-         [CustomAuthorizeFilter(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,7 +42,6 @@ namespace ASPMVC_ShoppingCart.Controllers
         }
 
         // GET: Cities/Create
-         [CustomAuthorizeFilter(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "CountryName");

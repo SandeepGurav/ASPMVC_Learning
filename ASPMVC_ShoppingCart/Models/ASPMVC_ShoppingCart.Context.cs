@@ -28,5 +28,6 @@ namespace ASPMVC_ShoppingCart.Models
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<BudgetaryExpdr> BudgetaryExpdrs { get; set; }
     }
 }

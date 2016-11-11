@@ -28,7 +28,6 @@ namespace ASPMVC_ShoppingCart.Controllers
         }
 
         // GET: Users/Details/5
-        [CustomAuthorizeFilter]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -94,7 +93,6 @@ namespace ASPMVC_ShoppingCart.Controllers
             return View(user);
         }
         // GET: Users/Login
-       [AllowAnonymous]
         public ActionResult Login()
         {
             //ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "CountryName");
@@ -111,10 +109,14 @@ namespace ASPMVC_ShoppingCart.Controllers
             if (ModelState.IsValid)
             {
                var UM= db.Users.Where(u=>u.EmailID==user.EmailID && u.Password==user.Password);      
-                if(UM.Count()>=0)
+                if(UM.Count()>0)
                 {
                     SessionPersister.EmailID = user.EmailID;
                     return RedirectToAction("Index", "Home");                    
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login attempt.");
                 }
 
             }        
@@ -142,6 +144,7 @@ namespace ASPMVC_ShoppingCart.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CountryID = new SelectList(db.Countries, "CountryID", "CountryID", user.CityID);
             ViewBag.CityID = new SelectList(db.Cities, "CityID", "CityName", user.CityID);
             return View(user);
         }

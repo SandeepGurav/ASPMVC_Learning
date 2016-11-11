@@ -11,6 +11,7 @@
         <AssociationConnector Association="ASPMVCModel.FK_City_Country" ManuallyRouted="false" />
         <AssociationConnector Association="ASPMVCModel.FK_User_City" ManuallyRouted="false" />
         <AssociationConnector Association="ASPMVCModel.FK_User_City1" />
+        <EntityTypeShape EntityType="ASPMVCModel.BudgetaryExpdr" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

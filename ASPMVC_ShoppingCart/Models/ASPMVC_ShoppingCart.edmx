@@ -5,6 +5,22 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ASPMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BudgetaryExpdr">
+          <Key>
+            <PropertyRef Name="Budg_ID" />
+          </Key>
+          <Property Name="Budg_ID" Type="int" Nullable="false" />
+          <Property Name="HeadAcount" Type="nvarchar" MaxLength="50" />
+          <Property Name="DemandBE" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DemandRE" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ExpdrLastMonth" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ExpdrDuringMonth" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ExpdrTotalYear" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ExpdrOverAllotment" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="CEZone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Month" Type="nvarchar" MaxLength="50" />
+          <Property Name="Year" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="City">
           <Key>
             <PropertyRef Name="CityID" />
@@ -58,6 +74,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ASPMVCModelStoreContainer">
+          <EntitySet Name="BudgetaryExpdr" EntityType="Self.BudgetaryExpdr" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -148,6 +165,7 @@
             <End Role="Country" EntitySet="Countries" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="BudgetaryExpdrs" EntityType="ASPMVCModel.BudgetaryExpdr" />
         </EntityContainer>
         <Association Name="FK_User_City1">
           <End Type="ASPMVCModel.Country" Role="Country" Multiplicity="1" />
@@ -161,6 +179,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BudgetaryExpdr">
+          <Key>
+            <PropertyRef Name="Budg_ID" />
+          </Key>
+          <Property Name="Budg_ID" Type="Int32" Nullable="false" />
+          <Property Name="HeadAcount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DemandBE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DemandRE" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ExpdrLastMonth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ExpdrDuringMonth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ExpdrTotalYear" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ExpdrOverAllotment" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CEZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -195,6 +229,23 @@
                 <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
                 <ScalarProperty Name="CountryID" ColumnName="CountryID" />
                 <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BudgetaryExpdrs">
+            <EntityTypeMapping TypeName="ASPMVCModel.BudgetaryExpdr">
+              <MappingFragment StoreEntitySet="BudgetaryExpdr">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="CEZone" ColumnName="CEZone" />
+                <ScalarProperty Name="ExpdrOverAllotment" ColumnName="ExpdrOverAllotment" />
+                <ScalarProperty Name="ExpdrTotalYear" ColumnName="ExpdrTotalYear" />
+                <ScalarProperty Name="ExpdrDuringMonth" ColumnName="ExpdrDuringMonth" />
+                <ScalarProperty Name="ExpdrLastMonth" ColumnName="ExpdrLastMonth" />
+                <ScalarProperty Name="DemandRE" ColumnName="DemandRE" />
+                <ScalarProperty Name="DemandBE" ColumnName="DemandBE" />
+                <ScalarProperty Name="HeadAcount" ColumnName="HeadAcount" />
+                <ScalarProperty Name="Budg_ID" ColumnName="Budg_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
