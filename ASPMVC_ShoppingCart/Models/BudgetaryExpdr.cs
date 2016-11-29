@@ -25,5 +25,6 @@ namespace ASPMVC_ShoppingCart.Models
         public string CEZone { get; set; }
         public string Month { get; set; }
         public int Year { get; set; }
+        public Nullable<decimal> Alloted { get; set; }
     }
 }

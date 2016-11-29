@@ -49,11 +49,14 @@ namespace ASPMVC_ShoppingCart.Controllers
                         adapter.Fill(ds, "Items");
 
                         BudgetaryExpdr BudgetaryExpdr = new BudgetaryExpdr();
-                        BudgetaryExpdr BudgetaryExpdrRejected = new BudgetaryExpdr();
+                        //BudgetaryExpdr BudgetaryExpdrRejected = new BudgetaryExpdr();
                         if (ds.Tables.Count > 0)
                         {
                             if (ds.Tables[0].Rows.Count > 0)
                             {
+                                BudgetaryExpdr.CEZone = ds.Tables[0].Rows[0][1].ToString();
+                                BudgetaryExpdr.Month = ds.Tables[0].Rows[0][7].ToString();
+                                BudgetaryExpdr.Year = Convert.ToInt32(ds.Tables[0].Rows[0][8].ToString());
 
                                 for (int i = 2; i < ds.Tables[0].Rows.Count; i++)
                                 {
@@ -62,28 +65,33 @@ namespace ASPMVC_ShoppingCart.Controllers
                                     //     user.Add ds.Tables[0].Rows[i][j].ToString();
                                     //}
 
-                                    //BudgetaryExpdr.CEZone = ds.Tables[0].Rows[i][1].ToString();
-                                    //BudgetaryExpdr.Month = ds.Tables[0].Rows[i][0].ToString();
-                                    //BudgetaryExpdr.Year = ds.Tables[0].Rows[i][2].ToString();
+                                    BudgetaryExpdr.HeadAcount = Convert.ToString(ds.Tables[0].Rows[i][1]);
+                                    BudgetaryExpdr.DemandBE = Convert.ToDecimal(ds.Tables[0].Rows[i][2]);
+                                    BudgetaryExpdr.DemandRE = Convert.ToDecimal(ds.Tables[0].Rows[i][3]);
+                                    BudgetaryExpdr.Alloted = Convert.ToDecimal(ds.Tables[0].Rows[i][4]);
+                                    BudgetaryExpdr.ExpdrLastMonth = Convert.ToDecimal(ds.Tables[0].Rows[i][5]);
+                                    BudgetaryExpdr.ExpdrDuringMonth = Convert.ToDecimal(ds.Tables[0].Rows[i][6]);
+                                    BudgetaryExpdr.ExpdrTotalYear = Convert.ToDecimal(ds.Tables[0].Rows[i][7]);
+                                    BudgetaryExpdr.ExpdrOverAllotment = Convert.ToDecimal(ds.Tables[0].Rows[i][8]);
                                     //BudgetaryExpdr. = "Password";
                                     //BudgetaryExpdr.CountryID = 1;
                                     //BudgetaryExpdr.Role = ds.Tables[0].Rows[i][6].ToString();
-                                    //if (ModelState.IsValid)
-                                    //{
-                                    //    try
-                                    //    {
-                                    //        db.Users.Add(user);
-                                    //        db.SaveChanges();
-                                    //    }
-                                    //    catch
-                                    //    {
-                                    //        userrejectted = user;
-                                    //    }
-                                    //}
-                                    //else
-                                    //{
-                                    //    userrejectted = user;
-                                    //}
+                                   if (ModelState.IsValid)
+                                    {
+                                       try
+                                        {
+                                            db.BudgetaryExpdrs.Add(BudgetaryExpdr);
+                                           db.SaveChanges();
+                                       }
+                                        catch
+                                        {
+                                          // BudgetaryExpdrRejected = BudgetaryExpdr;
+                                       }
+                                    }
+                                    else
+                                    {
+                                        //BudgetaryExpdrRejected = BudgetaryExpdr;
+                                    }
                                     //Now we can insert this data to database...
                                 }
                             }
@@ -91,7 +99,7 @@ namespace ASPMVC_ShoppingCart.Controllers
                     }
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Import");
         }
 
 

@@ -17,7 +17,7 @@ namespace ASPMVC_ShoppingCart.Controllers
         private ASPMVCEntities db = new ASPMVCEntities();
 
         // GET: Users
-         [AllowAnonymous]
+         
         public ActionResult Index()
         {
             var users = db.Users.Include(u => u.City);
@@ -26,6 +26,7 @@ namespace ASPMVC_ShoppingCart.Controllers
 
             
         }
+       
 
         // GET: Users/Details/5
         public ActionResult Details(int? id)
@@ -92,6 +93,8 @@ namespace ASPMVC_ShoppingCart.Controllers
             ViewBag.CityID = new SelectList(db.Cities, "CityID", "CityName", user.CityID);
             return View(user);
         }
+       
+        
         // GET: Users/Login
         public ActionResult Login()
         {

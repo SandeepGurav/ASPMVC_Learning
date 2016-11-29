@@ -9,17 +9,18 @@
           <Key>
             <PropertyRef Name="Budg_ID" />
           </Key>
-          <Property Name="Budg_ID" Type="int" Nullable="false" />
+          <Property Name="Budg_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HeadAcount" Type="nvarchar" MaxLength="50" />
           <Property Name="DemandBE" Type="numeric" Precision="18" Scale="0" />
           <Property Name="DemandRE" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Alloted" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ExpdrLastMonth" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ExpdrDuringMonth" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ExpdrTotalYear" Type="numeric" Precision="18" Scale="0" />
           <Property Name="ExpdrOverAllotment" Type="numeric" Precision="18" Scale="0" />
           <Property Name="CEZone" Type="nvarchar" MaxLength="50" />
           <Property Name="Month" Type="nvarchar" MaxLength="50" />
-          <Property Name="Year" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -194,6 +195,7 @@
           <Property Name="CEZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Year" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Alloted" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -235,6 +237,7 @@
           <EntitySetMapping Name="BudgetaryExpdrs">
             <EntityTypeMapping TypeName="ASPMVCModel.BudgetaryExpdr">
               <MappingFragment StoreEntitySet="BudgetaryExpdr">
+                <ScalarProperty Name="Alloted" ColumnName="Alloted" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="CEZone" ColumnName="CEZone" />

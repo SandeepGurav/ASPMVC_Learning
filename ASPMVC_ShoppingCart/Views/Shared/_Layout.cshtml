@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - ASP MVC Shopping Cart</title>
+    <title>@ViewBag.Title - Report Consolidation System</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>  
@@ -28,12 +28,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("ASP MVC Shopping Cart", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Report Consolidation System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">          
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -43,7 +43,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            @Html.ActionLink(" Log Out", "logout", "Users", new { @class = "fa fa-fw fa-power-off" })
+                            @Html.ActionLink(" Log Out", "logout", "Users")
                         </li>
                     </ul>
                 </li>
@@ -52,16 +52,17 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        @Html.ActionLink("Budgetary Expdr", "Import", "BudgetaryExpdr")
+                        @*<a href="BudgetaryExpdr/Import"><i class="fa fa-fw fa-dashboard"></i> Budgetary</a>*@
                     </li>
                     @*<li>
                         <a href="charts.html"><i class="fa fa-fw fa-road"></i> Roadmap</a>
                     </li>*@
-                    <li>
+                    @*<li>
                         <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Configuration</a>
-                    </li>  
+                    </li>*@  
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-user"></i> User Managment <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-wrench"></i> Configuration<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
                                 @Html.ActionLink("Users", "Index", "Users")
@@ -83,7 +84,7 @@
         </div>     
             </div>
     <footer>
-        <p>&copy; @DateTime.Now.Year - ASP MVC Shopping Cart</p>
+        <p>&copy; @DateTime.Now.Year - Report Consolidation System</p>
     </footer>
     <script src="~/Scripts/jquery-3.1.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

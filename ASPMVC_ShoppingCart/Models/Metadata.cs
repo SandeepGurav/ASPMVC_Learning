@@ -12,30 +12,33 @@ namespace ASPMVC_ShoppingCart.Models
             [Display(Name = "Head of Account")]
             public string HeadAcount { get; set; }
 
-            [Range(10,2) ]
+            //[Range(10,2) ]
             [Display(Name = "Demand BE in Lakh")]
             public decimal DemandBE { get; set; }
 
-            [Range(10, 2)]
+            //[Range(10, 2)]
             [Display(Name = "Demand RE in Lakh")]
             public decimal DemandRE { get; set; }
 
-            [Range(10, 2)]
+            [Display(Name = "Alloted")]
+            public decimal Alloted { get; set; }
+
+            //[Range(10, 2)]
             [Display(Name = "Upto last month")]
             public decimal ExpdrLastMonth { get; set; }
 
-            [Range(10, 2)]
+            //[Range(10, 2)]
             [Display(Name = "During the month")]
             public decimal ExpdrDuringMonth { get; set; }
 
-            [Range(10, 2)]
+            //[Range(10, 2)]
             [Display(Name = "Total during the year")]
             public decimal ExpdrTotalYear { get; set; }
 
-            [Range(10, 2)]
+            //[Range(10, 2)]
             [Display(Name = "%Expdr over allotment")]
             public decimal ExpdrOverAllotment { get; set; }
-           
+
             [StringLength(50)]
             [Display(Name = "CE Zone")]
             public string CEZone { get; set; }
@@ -44,7 +47,7 @@ namespace ASPMVC_ShoppingCart.Models
             [Display(Name = "Month")]
             public string Month { get; set; }
 
-            [StringLength(30)]
+            
             [Display(Name = "Year")]
             public int Year { get; set; }
         }

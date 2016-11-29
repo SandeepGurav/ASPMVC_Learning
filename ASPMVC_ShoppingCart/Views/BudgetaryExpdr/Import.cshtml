@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Import";
+    
 }
 
 <h2>Import</h2>
@@ -7,7 +8,7 @@
 @using (Html.BeginForm("Import", "BudgetaryExpdr", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
-        <h4>Country</h4>
+        <h4>Budgetary Expdr</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

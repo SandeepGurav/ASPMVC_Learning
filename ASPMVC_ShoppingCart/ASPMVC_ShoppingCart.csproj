@@ -321,7 +321,9 @@
       <DependentUpon>ASPMVC_ShoppingCart.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\CustomAuthorizeFilter.cs" />
+    <Compile Include="Security\CustomAuthorizeFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Security\CustomPrincipal.cs" />
     <Compile Include="Security\SessionPersister.cs" />
   </ItemGroup>
@@ -373,6 +375,7 @@
     <Content Include="Views\AccessDenied\Index.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\BudgetaryExpdr\Import.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
